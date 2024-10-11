@@ -102,6 +102,7 @@ Steps to Complete the README:
 2. Add an Image
     - Place a screenshot of your app in the `/images` folder within your project.
     - The screenshot can be named `diary-screenshot.png` or any name you prefer. 
-    - The line `![Diary Management Screenshot](https://raw.githubusercontent.com/Hasanboevs1/Diary/refs/heads/main/main.png)` will display this image in the **README.md** when viewed on GitHub or any markdown viewer.
+    - The line ![Diary Management Screenshot](https://raw.githubusercontent.com/Hasanboevs1/Diary/main/images/diary-screenshot.png)
+ will display this image in the **README.md** when viewed on GitHub or any markdown viewer.
 
 3. License File: Make sure to include a `LICENSE` file in your repository. You can find a template for the MIT License [here](https://opensource.org/licenses/MIT). 
