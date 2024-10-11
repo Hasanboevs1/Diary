@@ -1,0 +1,106 @@
+﻿@model IEnumerable<Web.Models.DiaryModel>
+
+@{
+    ViewData["Title"] = "Diaries";
+}
+
+<h1 class="diary-header">My Diaries</h1>
+
+<!-- Centered Search bar with Add New Diary icon aligned to the right -->
+<div class="search-add-wrapper">
+    <!-- Centered search bar -->
+    <div class="search-bar-wrapper">
+        <input type="text" class="form-control" id="searchInput" placeholder="Search by title..." />
+    </div>
+    
+    <!-- Add New Diary Icon aligned to the right -->
+    <div class="add-icon-wrapper">
+        <a asp-controller="Diary" asp-action="Create" class="add-diary-icon">
+            <i class="fas fa-plus-circle fa-2x"></i> <!-- Font Awesome icon for adding a new diary -->
+        </a>
+    </div>
+</div>
+
+<div class="container">
+    <div class="row">
+        @foreach (var diary in Model)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="cart" data-id="@diary.Id">
+                    <div class="cart-title">
+                        @diary.Title
+                    </div>
+                    <div class="cart-date">
+                        @diary.CreatedAt.ToString("MMMM dd, yyyy")
+                    </div>
+                    
+                    <!-- Icons for Read, Edit, and Delete centered in the cart -->
+                    <div class="cart-icons text-center">
+                        <a asp-controller="Diary" asp-action="Details" asp-route-id="@diary.Id" class="icon-read">
+                            <i class="fas fa-eye fa-lg"></i>
+                        </a>
+                        <a asp-controller="Diary" asp-action="Edit" asp-route-id="@diary.Id" class="icon-edit">
+                            <i class="fas fa-edit fa-lg"></i>
+                        </a>
+                        <a asp-controller="Diary" asp-action="Delete" asp-route-id="@diary.Id" class="icon-delete">
+                            <i class="fas fa-trash fa-lg"></i>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+
+<!-- JavaScript to filter the diaries by title -->
+<script>
+    document.getElementById('searchInput').addEventListener('input', function() {
+        const filter = this.value.toLowerCase();
+        const carts = document.querySelectorAll('.cart');
+
+        carts.forEach(cart => {
+            const title = cart.querySelector('.cart-title').textContent.toLowerCase();
+            if (title.includes(filter)) {
+                cart.style.display = 'block';
+            } else {
+                cart.style.display = 'none';
+            }
+        });
+    });
+
+    // Color change function for dynamic colors
+    const carts = document.querySelectorAll('.cart');
+    
+    function getBrightColor() {
+        const r = Math.floor(Math.random() * 128) + 128;
+        const g = Math.floor(Math.random() * 128) + 128;
+        const b = Math.floor(Math.random() * 128) + 128;
+        return { r, g, b };
+    }
+
+    function getComplementaryColor({ r, g, b }) {
+        return { r: 255 - r, g: 255 - g, b: 255 - b };
+    }
+
+    function rgbToCss({ r, g, b }) {
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    function changeColors() {
+        carts.forEach(cart => {
+            const backgroundColor = getBrightColor();
+            const textColor = getComplementaryColor(backgroundColor);
+
+            cart.style.backgroundColor = rgbToCss(backgroundColor);
+            cart.style.color = rgbToCss(textColor);
+
+            const icons = cart.querySelectorAll('.fas');
+            icons.forEach(icon => {
+                icon.style.color = rgbToCss(textColor); // Change icon color dynamically
+            });
+        });
+    }
+
+    changeColors();
+    setInterval(changeColors, 60000);
+</script>

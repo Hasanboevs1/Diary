@@ -1,0 +1,21 @@
+﻿@model Web.Models.DiaryModel
+
+@{
+    ViewData["Title"] = "Delete Diary";
+}
+
+<h1>Are you sure you want to delete this diary?</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+        <p class="card-text">@Model.Content</p>
+        <p class="text-muted">@Model.CreatedAt.ToString("MMMM dd, yyyy")</p>
+    </div>
+    <div class="card-footer">
+        <form method="post">
+            <button type="submit" class="btn btn-danger">Delete</button>
+            <a href="@Url.Action("Index", "Diary")" class="btn btn-secondary">Cancel</a>
+        </form>
+    </div>
+</div>

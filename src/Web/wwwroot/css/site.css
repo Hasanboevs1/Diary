@@ -1,0 +1,109 @@
+html {
+  font-size: 14px;
+  font-family: 'Riders Mono', monospace;
+}
+
+.hover {
+  color : black;
+  text-decoration: none;
+  transition: 0.7s;
+  padding: 14px 7px;
+  gap: 30px;
+}
+
+.hover:hover {
+  color: whitesmoke;
+  text-decoration: none;
+  transition: 0.3s;
+  background-color: pink;
+  padding: 14px 7px;
+}
+
+/* Center the h1 and increase space */
+.diary-header {
+  text-align: center;
+  margin-bottom: 40px;
+  font-size: 2.5rem;
+  color: #333;
+}
+
+/* Wrapper for search bar and add icon */
+.search-add-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 40px;
+  position: relative;
+}
+
+/* Center the search bar with some max width */
+.search-bar-wrapper {
+  width: 100%;
+  max-width: 600px;
+  margin-right: auto;
+  margin-left: auto;
+}
+
+/* Add New Diary icon positioned on the far right */
+.add-icon-wrapper {
+  position: absolute;
+  right: 0;
+  margin-right: 10px;
+}
+
+/* Cart styling */
+.cart {
+  border: 1px solid #ddd;
+  border-radius: 8px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: background-color 1s, color 1s;
+  position: relative;
+}
+
+/* Styling for the cart icons (centered) */
+.cart-icons {
+  margin-top: 20px;
+}
+
+.cart-icons a {
+  margin: 0 10px;
+  color: inherit; /* Make the icon color change dynamically with the cart */
+  transition: color 0.5s ease;
+}
+
+/* Larger hover effect on the icons */
+.cart-icons a:hover {
+  transform: scale(1.2); /* Slightly increase icon size on hover */
+}
+
+/* Add New Diary Icon styling */
+.add-diary-icon {
+  color: #007bff; /* Initial color */
+  transition: color 0.3s ease;
+}
+
+.add-diary-icon:hover {
+  color: #0056b3; /* Change color on hover */
+}
+
+
+
+@media (min-width: 768px) {
+  html {
+    font-size: 16px;
+  }
+}
+
+.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
+  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+}
+
+html {
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  margin-bottom: 60px;
+}

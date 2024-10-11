@@ -1,0 +1,20 @@
+﻿@model Web.Models.DiaryModel
+
+@{
+    ViewData["Title"] = "Diary Details";
+}
+
+<h1>Diary Details</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h5 class="card-title">@Model.Title</h5>
+        <p class="card-text">@Model.Content</p>
+        <p class="text-muted">@Model.CreatedAt.ToString("MMMM dd, yyyy")</p>
+    </div>
+    <div class="card-footer">
+        <a href="@Url.Action("Edit", "Diary", new { id = Model.Id })" class="btn btn-warning">Edit</a>
+        <a href="@Url.Action("Delete", "Diary", new { id = Model.Id })" class="btn btn-danger">Delete</a>
+        <a href="@Url.Action("Index", "Diary")" class="btn btn-secondary">Back</a>
+    </div>
+</div>

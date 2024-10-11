@@ -1,0 +1,24 @@
+﻿@model Web.Models.DiaryModel
+
+@{
+    ViewData["Title"] = "Edit Diary";
+}
+
+<h1>Edit Diary</h1>
+
+<form method="post">
+    <div class="form-group">
+        <label for="Title">Title</label>
+        <input type="text" class="form-control" id="Title" name="Title" value="@Model.Title" required />
+    </div>
+    
+    <div class="form-group mt-3"> <!-- Added margin-top (mt-3) to give space between Title and Content -->
+        <label for="Content">Content</label>
+        <textarea class="form-control" id="Content" name="Content" required>@Model.Content</textarea>
+    </div>
+    
+    <div class="form-group mt-4"> <!-- Added margin-top (mt-4) to give space before the buttons -->
+        <button type="submit" class="btn btn-primary">Save Changes</button>
+        <a href="@Url.Action("Index", "Diary")" class="btn btn-secondary ml-2">Cancel</a> <!-- ml-2 to add left margin to the Cancel button -->
+    </div>
+</form>
